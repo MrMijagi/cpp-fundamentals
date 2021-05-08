@@ -1,17 +1,17 @@
-# Jak skonfigurować sobie środowisko na Ubuntu Linux
+# How to configure the environment on Linux Ubuntu
 
-1. Zainstaluj gita, g++, make
+1. Install Git, g++, make
     * `sudo apt update`
     * `sudo apt install git`
     * `sudo apt install build-essential`
     * `sudo apt-get install manpages-dev`
 
-2. Sprawdź, czy programy się zainstalowały. Komunikat `command not found` oznacza błąd w instalacji.
+2. Check if the programs have been installed. Message `command not found` means an error in the installation.
     * `git --version`
     * `g++ --version`
     * `make --version`
 
-3. Zainstaluj Visual Studio Code
+3. Install Visual Studio Code
     * `sudo apt update`
     * `sudo apt install software-properties-common apt-transport-https wget`
     * `wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -`
@@ -19,16 +19,16 @@
     * `sudo apt update`
     * `sudo apt install code`
 
-4. Uruchom VSC i zainstaluj rozszerzenia
+4. Run the VSC and install extensions
     * C/C++
     * C++ Intellisense
     * CMake
     * CMake Tools
 
-5. Zainstaluj CMake:
+5. Install CMake:
     `sudo apt-get install cmake`
 
-    lub wersja trudniejsza, gdy powyższe nie zadziała, czyli instalacja z archiwum:
+    or a more difficult approach when the above does not work, i.e. installation from the archive:
 
     ```bash
     wget https://github.com/Kitware/CMake/releases/download/v3.15.2/cmake-3.15.2.tar.gz
@@ -39,18 +39,18 @@
     sudo make install
     ```
 
-6. Sprawdź, czy cmake się zainstalował: `cmake --version`
+6. Check if CMake has been installed: `cmake --version`
 
-7. Budowanie kodu
+7. Building code
 
-    * Utwórz plik zadanie1.cpp
+    * Create a task1.cpp file
 
     ```cpp
     #include<iostream>
     #include<string>
 
     int main() {
-      std::cout << "Podaj swoje imie: ";
+      std::cout << "Enter your name: ";
       std::string name;
       std::cin >> name;
       std::cout << "\nHello world! " << name << "\n";
@@ -59,12 +59,12 @@
     }
     ```
 
-    * wpisz `g++ -std=c++17 zadanie1.cpp -o zadanie1`
-    * uruchom `./zadanie1`
+    * enter `g++ -std=c++17 task1.cpp -o task1`
+    * Run `./task1`
 
-8. Budowanie kodu za pomocą CMake
+8. Building code using CMake
 
-    * Utwórz plik CMakeLists.txt w tym samym katalogu co zadanie1.cpp i wpisz do niego
+    * Create a CMakeLists.txt file in the same directory as task1.cpp and put this inside
 
     ```cmake
     cmake_minimum_required(VERSION 3.10)
@@ -77,11 +77,11 @@
     project(Tutorial)
 
     # add the executable
-    add_executable(Tutorial zadanie1.cpp)
+    add_executable(Tutorial task1.cpp)
     ```
 
-    * Utwórz katalog build `mkdir build`
-    * Przejdź do katalogu `cd build`
-    * Uruchom cmake `cmake ..`
-    * Zbuduj plik `make`
-    * Uruchom program `./Tutorial`
+    * Create build directory `mkdir build`
+    * Go to the catalog `cd build`
+    * Run CMake `cmake ..`
+    * Build a file `make`
+    * Launch the program `./Tutorial`
